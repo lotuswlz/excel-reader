@@ -12,6 +12,7 @@ import java.util.List;
 public class MainFrame extends JFrame implements ActionListener {
 
     private final JLabel filePathLabel;
+    private final SaveButton saveButton = new SaveButton();
 
     private List<String> fileList = new ArrayList<>();
 
@@ -23,7 +24,7 @@ public class MainFrame extends JFrame implements ActionListener {
         panel.add(new UploadButton(this), BorderLayout.NORTH);
         filePathLabel = new JLabel("");
         panel.add(filePathLabel, BorderLayout.CENTER);
-
+        panel.add(saveButton, BorderLayout.SOUTH);
         this.add(panel);
     }
 
@@ -44,6 +45,7 @@ public class MainFrame extends JFrame implements ActionListener {
             File selectedFile = jfc.getSelectedFile();
             String absolutePath = selectedFile.getAbsolutePath();
             fileList.add(absolutePath);
+            saveButton.receiveFile(fileList);
             System.out.println("file selected: " + absolutePath);
             drawFileListLabel();
         }
