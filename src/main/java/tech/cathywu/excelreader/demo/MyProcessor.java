@@ -15,18 +15,18 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Processor {
+public class MyProcessor {
 
-    private static Processor instance = null;
+    private static MyProcessor instance = null;
 
     private List<String> filePaths;
 
-    private Processor() {
+    private MyProcessor() {
     }
 
-    public synchronized static Processor getInstance() {
+    public synchronized static MyProcessor getInstance() {
         if (instance == null) {
-            instance = new Processor();
+            instance = new MyProcessor();
         }
         return instance;
     }

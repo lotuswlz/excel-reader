@@ -1,17 +1,27 @@
 package tech.cathywu.excelreader.demo;
 
-import tech.cathywu.excelreader.annotation.SourceColumn;
+import lombok.Data;
+import tech.cathywu.excelreader.demo.processor.ReadProcessor;
+import tech.cathywu.excelreader.sdk.annotation.ExcelProcessor;
+import tech.cathywu.excelreader.sdk.annotation.SourceColumn;
 
+@Data
+@ExcelProcessor(processor = ReadProcessor.class)
 public class Model {
 
-    @SourceColumn("name")
-    private String columnName;
+    @SourceColumn("Profile.Name")
+    private String name;
 
-    public String getColumnName() {
-        return columnName;
-    }
+    @SourceColumn("Profile.Gender")
+    private String gender;
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
-    }
+    @SourceColumn("Profile.Age")
+    private int age;
+
+    @SourceColumn("Other Information.Grade")
+    private String grade;
+
+    @SourceColumn("Other Information.Title")
+    private String title;
+
 }
